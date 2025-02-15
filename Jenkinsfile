@@ -55,7 +55,7 @@ pipeline {
                     sh """
                     docker stop my-nodejs-app || true
                     docker rm my-nodejs-app || true
-                    docker run -d --name my-nodejs-app -p 3000:3000 ${DOCKER_IMAGE}:${IMAGE_TAG}
+                    docker run -d --name my-nodejs-app -p 80:80 ${DOCKER_IMAGE}:${IMAGE_TAG}
                     """
                 }
             }
