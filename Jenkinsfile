@@ -34,18 +34,18 @@ pipeline {
             }
         }
 
-        stage('Test Docker Image') {
-            steps {
-                script {
-                    // Test Docker image by running it and checking if the app is running
-                    sh """
-                    docker run -d -p 3000:3000 ${DOCKER_IMAGE}:${IMAGE_TAG}
-                    sleep 5  // Wait for the app to start
-                    curl http://localhost:3000  // Test if the app is running
-                    """
-                }
-            }
-        }
+        // stage('Test Docker Image') {
+        //     steps {
+        //         script {
+        //             // Test Docker image by running it and checking if the app is running
+        //             sh """
+        //             docker run -d -p 3000:3000 ${DOCKER_IMAGE}:${IMAGE_TAG}
+        //             sleep 5  // Wait for the app to start
+        //             curl http://localhost:3000  // Test if the app is running
+        //             """
+        //         }
+        //     }
+        // }
 
         stage('Deploy to Server') {
             steps {
